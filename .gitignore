@@ -1,0 +1,6 @@
+.env
+**.DS_Store
+logs/**
+output/**
+!output/README.md
+!logs/README.md

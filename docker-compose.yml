@@ -1,0 +1,28 @@
+services:
+  opendcs:
+    build:
+      context: ./opendcs
+    image: opendcs
+    # command: tail -F anything
+    environment:
+      # OpenDCS Datasource Passwords
+      # Environment variables must end with '_USERNAME' or '_PASSWORD'
+      - CDADATA_USERNAME=$CDADATA_USERNAME
+      - CDADATA_PASSWORD=$CDADATA_PASSWORD
+      - CDABACKUP_USERNAME=$CDADATA_USERNAME
+      - CDABACKUP_PASSWORD=$CDADATA_PASSWORD
+      - EDDN1_USERNAME=$CDADATA_USERNAME
+      - EDDN1_PASSWORD=$CDADATA_PASSWORD
+    # volumes:
+    #   - ./_volumes/lrgs/archive:/app/opendcs/lrgs/archive
+    #   - ./_volumes/lrgs/lrgsstatus/:/app/opendcs/lrgs/lrgsstatus/
+
+    # ports:
+    #   - '16004:16003'
+  #---------------
+  # lrgs_status:
+  #   image: nginx
+  #   ports:
+  #     - '16002:80'
+  #   volumes:
+  #     - ./_volumes/lrgs/lrgsstatus:/usr/share/nginx/html:ro
